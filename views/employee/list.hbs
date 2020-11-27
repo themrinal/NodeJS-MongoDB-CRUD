@@ -1,0 +1,24 @@
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each list}}
+     <tr>
+       <td>{{this.fullName}}</td>
+       <td>{{this.email}}</td>
+       <td>{{this.mobile}}</td>
+       <td>{{this.city}}</td>
+       <td>
+         <a><i class="fa fa-pencil fa-lg"></i></a>
+         <a><i class="fa fa-trash fa-lg"></i></a>
+       </td>
+     </tr>
+    {{/each}}
+  </tbody>
+</table>
