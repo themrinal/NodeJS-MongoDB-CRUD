@@ -29,7 +29,7 @@ function insertRecord(req, res) {
 
   emp.save(function(err) {
     if(!err) {
-      res.redirect('employee/list');
+      res.redirect('list');
     }
     else {
       console.log(`Can not save the records ! ${err}`);   
@@ -40,7 +40,7 @@ function insertRecord(req, res) {
 function updateRecord(req, res) {
   employee.findOneAndUpdate({_id : req.body._id}, req.body, {new : true}, (err, doc) => {
     if(!err) {
-      res.redirect('employee/list')
+      res.redirect('/list')
     }
     else {
       console.log(`Error during update. ${err}`);
