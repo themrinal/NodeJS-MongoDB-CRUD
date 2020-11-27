@@ -25,4 +25,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`Server is running at port ${PORT}`));
 
 const employeeController = require('./controllers/employeeController');
-app.use('/employee', employeeController);
+app.use('/', employeeController);
