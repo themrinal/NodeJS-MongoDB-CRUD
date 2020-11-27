@@ -35,11 +35,23 @@ router.get('/list', (req, res) => {
   employee.find((err, docs) => {
     if(!err) {
       res.render('employee/list', {
+        viewTitle : 'Employee List',
         list : docs
       });
     }
     else {
       console.log(`Error retrieving employee data. ${err}`);
+    }
+  });
+});
+
+router.get('/:id', (req, res) => {
+  employee.findById(req.params.id, function(err, doc) {
+    if(!err) {
+      res.render('employee/addOrEdit', {
+        viewTitle : 'Update Employee',
+        emplo : doc
+      })
     }
   });
 });

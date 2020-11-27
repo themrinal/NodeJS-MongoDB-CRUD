@@ -1,3 +1,4 @@
+<a class="btn btn-primary" href='/employee'><i class="fa fa-plus"></i> Add New</a> <h3>{{viewTitle}}</h3>
 <table class="table table-responsive">
   <thead>
     <tr>
@@ -15,7 +16,7 @@
        <td>{{this.mobile}}</td>
        <td>{{this.city}}</td>
        <td>
-         <a><i class="fa fa-pencil fa-lg"></i></a>
+         <a href="/employee/{{this._id}}"><i class="fa fa-pencil fa-lg"></i></a>
          <a><i class="fa fa-trash fa-lg"></i></a>
        </td>
      </tr>

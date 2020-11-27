@@ -1,6 +1,7 @@
 <h3>{{viewTitle}}</h3>
 
 <form action="/employee" method="POST" autocomplete="off">
+  <input type="hidden" name="_id" value="{{emplo._id}}">
   <div class="form-group">
     <label>Full Name</label>
     <input type="text" class="form-control" name="fullName" placeholder="Full Name" required>
@@ -10,16 +11,17 @@
     <input type="email" class="form-control" name="email" placeholder="Email" required>
   </div>
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6" style="padding: 0; margin:0;">
       <label>Mobile</label>
       <input type="number" class="form-control" name="mobile" placeholder="Mobile" style="-moz-appearance: textfield" required>
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6" style="padding-right: 0;">
       <label>City</label>
       <input type="text" class="form-control" name="city" placeholder="City" required>
     </div>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-primary" href="/employee/list"> <i class="fa fa-list-alt"></i> View All</a>
   </div>
 </form>
