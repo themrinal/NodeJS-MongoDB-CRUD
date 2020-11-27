@@ -11,7 +11,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', (req, res) => {
-  insertRecord(req, res);
+  if(req.body._id == '') {
+    insertRecord(req, res);
+  }
+  else {
+    updateRecord(req, res);
+  }
+  
 });
 
 function insertRecord(req, res) {
@@ -31,6 +37,17 @@ function insertRecord(req, res) {
   });
 }
 
+function updateRecord(req, res) {
+  employee.findOneAndUpdate({_id : req.body._id}, req.body, {new : true}, (err, doc) => {
+    if(!err) {
+      res.redirect('employee/list')
+    }
+    else {
+      console.log(`Error during update. ${err}`);
+    }
+  });
+}
+
 router.get('/list', (req, res) => {
   employee.find((err, docs) => {
     if(!err) {
@@ -46,11 +63,11 @@ router.get('/list', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  employee.findById(req.params.id, function(err, doc) {
+  employee.findById(req.params.id, function(err, docs) {
     if(!err) {
       res.render('employee/addOrEdit', {
         viewTitle : 'Update Employee',
-        emplo : doc
+        emplo : docs
       })
     }
   });
