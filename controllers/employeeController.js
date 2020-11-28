@@ -73,4 +73,14 @@ router.get('/:id', (req, res) => {
   });
 });
 
+router.get('/delete/:id', (req, res) => {
+  employee.findByIdAndRemove(req.params.id, (err, doc) => {
+    if(!err) {
+      res.redirect('/list');
+    } 
+    else {
+      console.log('Error during delete : ' + err);
+    }
+  });
+});
 module.exports = router;
