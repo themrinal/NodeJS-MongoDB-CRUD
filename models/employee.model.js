@@ -2,18 +2,17 @@ const mongoose = require('mongoose');
 
 var employeeSchema = new mongoose.Schema({
   fullName: {
-    type : String
+    type: String
   },
   email: {
-    type : String,
-    required : 'This field is required.'
+    type: String
   },
   mobile: {
-    type : String
+    type: String
   },
   city: {
-    type : String
+    type: String
   }
 });
 
-mongoose.model('Employee', employeeSchema);
+mongoose.model('Employee',employeeSchema);
